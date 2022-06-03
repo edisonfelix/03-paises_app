@@ -8,10 +8,11 @@ import { PorPaisComponent } from './pais/pages/por-pais/por-pais.component';
 import { PorRegionComponent } from './pais/pages/por-region/por-region.component';
 import { VerPaisComponent } from './pais/pages/ver-pais/ver-pais.component';
 import { PaisModule } from './pais/pais.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, SharedModule, PaisModule],
+  imports: [BrowserModule, SharedModule, PaisModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
