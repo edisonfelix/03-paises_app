@@ -8,10 +8,10 @@
     </div>
 </div>
 <hr>
-<div class="alert alert-danger">
-    No se encotro el termino: ABC123
+<div *ngIf="hayError" class="alert alert-danger">
+    No se encotro el termino: {{termino}}
 </div>
-<div class="row">
+<div *ngIf="paises.length !== 0" class="alert alert-row">
     <div class="col">
         <table class="table table-hover">
             <thead>
@@ -24,13 +24,13 @@
                 </tr>
              </thead>   
              <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Bandera</td>
-                    <td>Nombre</td>
-                    <td>Población</td>
+                <tr *ngFor="let pais of paises; let i = index">
+                    <td>{{i+1}}</td>
+                    <td><img [src]=pais.flags.svg class="small-flag"></td>
+                    <td>{{pais.name.common}}</td>
+                    <td>{{pais.population | number}}</td>
                     <td>
-                        <a href="/pais/mex">Ver...</a>
+                        <a [routerLink] ="['/pais/', pais.cca2]">Ver...</a>
                     </td>
                 </tr>
              </tbody>
